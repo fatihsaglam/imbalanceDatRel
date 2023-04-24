@@ -1,0 +1,24 @@
+Package: imbalanceDatRel
+Type: Package
+Title: Data Relocation for Data Oversampling
+Version: 0.3.1
+Authors@R: 
+        c(person("Fatih", "Saglam", email = "saglamf89@gmail.com", 
+        role = c("aut", "cre"), 
+        comment = c(ORCID = "0000-0002-2084-2008")))
+Description: Relocates resampled data samples from oversampling methods which 
+    are used to balanced imbalanced datasets. It prevents any class overlapping 
+    samples to exist.
+Depends: 
+    R (>= 4.2),
+    rcccd,
+    SMOTEWB
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: false
+RoxygenNote: 7.2.1
+Imports:
+    RANN,
+    Rfast,
+    rcccd,
+    SMOTEWB
