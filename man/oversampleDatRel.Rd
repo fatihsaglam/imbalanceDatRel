@@ -19,16 +19,26 @@ oversampleDatRel(
 
 \item{y}{class factor variable.}
 
-\item{method}{asd}
+\item{method}{oversampling method. Default is "SMOTE". Available methods are: \cr
+"ADASYN": Adaptive Synthetic Sampling \cr
+"ROS": Random Oversampling \cr
+"ROSE": Randomly Over Sampling Examples \cr
+"RSLSMOTE": Relocating safe-level SMOTE with minority outcast handling \cr
+"RUS": Random Undersampling \cr
+"SLSSMOTE": Safe-level Synthetic Minority Oversampling Technique \cr
+"SMOTE": Synthetic Minority Oversampling Technique \cr
+"SMOTEWB": SMOTE with boosting}
 
 \item{proportion}{proportion of covered samples. A real number between \eqn{(0,1]}.
 1 by default. Smaller numbers results in less dominant samples.}
 
-\item{p_of}{asd}
+\item{p_of}{proportion to increase cover radius. A real number between
+\eqn{(0,\infty)}. Default is 0. Higher values tolerate other classes more.}
 
-\item{class_pos}{asd}
+\item{class_pos}{Class name of synthetic data. Default is NULL. If NULL,
+positive class is minority class.}
 
-\item{...}{asd}
+\item{...}{arguments to be used in specified method.}
 }
 \value{
 an list which includes:
@@ -48,7 +58,32 @@ asd
 }
 \examples{
 
-rnorm(1)
+library(SMOTEWB)
+library(rcccd)
+
+set.seed(10)
+# adding data
+x <- rbind(matrix(rnorm(2000, 3, 1), ncol = 2, nrow = 1000),
+           matrix(rnorm(60, 6, 1), ncol = 2, nrow = 30))
+y <- as.factor(c(rep("negative", 1000), rep("positive", 30)))
+
+# adding noise
+x[1001,] <- c(3,3)
+x[1002,] <- c(2,2)
+x[1003,] <- c(4,4)
+
+# resampling
+m_SMOTE <- SMOTE(x = x, y = y, k = 3)
+
+# resampled data
+plot(x, col = y, main = "SMOTE")
+points(m_SMOTE$x_syn, col = "green")
+
+m_DatRel <- oversampleDatRel(x = x, y = y, method = "SMOTE")
+
+# resampled data after relocation
+plot(x, col = y, main = "SMOTE + DatRel")
+points(m_DatRel$x_syn, col = "green")
 
 }
 \references{

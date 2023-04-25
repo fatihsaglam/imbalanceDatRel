@@ -33,11 +33,35 @@
 #'
 #' @author Fatih Saglam, saglamf89@gmail.com
 #'
-#' @references
-#'
 #' @examples
 #'
-#' rnorm(1)
+#' library(SMOTEWB)
+#' library(rcccd)
+#'
+#' set.seed(10)
+#' # adding data
+#' x <- rbind(matrix(rnorm(2000, 3, 1), ncol = 2, nrow = 1000),
+#'            matrix(rnorm(60, 6, 1), ncol = 2, nrow = 30))
+#' y <- as.factor(c(rep("negative", 1000), rep("positive", 30)))
+#'
+#' # adding noise
+#' x[1001,] <- c(3,3)
+#' x[1002,] <- c(2,2)
+#' x[1003,] <- c(4,4)
+#'
+#' # resampling
+#' m_SMOTE <- SMOTE(x = x, y = y, k = 3)
+#'
+#' # relocation of resampled data
+#' m_DatRel <- DatRel(x = x, y = y, x_syn = m_SMOTE$x_syn)
+#'
+#' # resampled data
+#' plot(x, col = y, main = "SMOTE")
+#' points(m_SMOTE$x_syn, col = "green")
+#'
+#' # resampled data after relocation
+#' plot(x, col = y, main = "SMOTE + DatRel")
+#' points(m_DatRel$x_syn, col = "green")
 #'
 #' @rdname DatRel
 #' @export

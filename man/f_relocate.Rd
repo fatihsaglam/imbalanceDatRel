@@ -7,23 +7,20 @@
 f_relocate(x_pos_dominant, x_syn, radii_pos_dominant, p_of = 0)
 }
 \arguments{
-\item{x_pos_dominant}{asd}
+\item{x_pos_dominant}{positive class dominant sample matrix or dataframe}
 
-\item{x_syn}{asd}
+\item{x_syn}{synthetically generated positive class sample matrix or dataframe}
 
-\item{radii_pos_dominant}{asd}
+\item{radii_pos_dominant}{positive class dominant sample radii}
 
-\item{p_of}{asd}
+\item{p_of}{proportion to increase cover radius. A real number between
+\eqn{(0,\infty)}. Default is 0. Higher values tolerate other classes more.}
 }
 \value{
-asd
- \item{x_syn_relocated}{relocated samples.}
+relocated data matrix
 }
 \description{
 Relocation function
-}
-\details{
-asd
 }
 \examples{
 rnorm(1)

@@ -27,13 +27,13 @@
 
 f_dominate <- function(x_main, x_other, proportion = 1, p_of = 0) {
   n_main <- nrow(x_main)
-  dist_main2other <- nn2(data = x_other, query = x_main, k = 1)$nn.dist*(1 + p_of) # nearest main class sample distance
-  dist_main2main <- Dist(x = x_main) # main class distance matrix
-  M <- dist_main2main < c(dist_main2other) # main class observers which are nearer than main class nearest sample
+  dist_main2other <- nn2(data = x_other, query = x_main, k = 1)$nn.dist*(1 + p_of)
+  dist_main2main <- Dist(x = x_main)
+  M <- dist_main2main < c(dist_main2other)
   M <- matrix(as.numeric(M), n_main)
 
-  cover <- rep(0, n_main) # cover vector
-  thresh <- n_main*proportion # threshold
+  cover <- rep(0, n_main)
+  thresh <- n_main*proportion
 
   m_dominant <- rcccd:::f_cover_pcccd(
     cover = cover,

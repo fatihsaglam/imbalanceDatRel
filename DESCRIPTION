@@ -8,8 +8,7 @@ Authors@R:
         comment = c(ORCID = "0000-0002-2084-2008")))
 Description: Relocates oversampled data from a specific oversampling method to
     cover area determined by pure and proper class cover catch digraphs (PCCCD). 
-    It prevents any data to be generated in class overlapping area. Can be used
-    for situations where more then one class is oversampled. 
+    It prevents any data to be generated in class overlapping area. 
 Depends: 
     R (>= 4.2),
     rcccd,

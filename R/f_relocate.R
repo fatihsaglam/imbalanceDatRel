@@ -8,8 +8,7 @@
 #' @param p_of proportion to increase cover radius. A real number between
 #'  \eqn{(0,\infty)}. Default is 0. Higher values tolerate other classes more.
 #'
-#' @return asd
-#'  \item{x_syn_relocated}{relocated samples.}
+#' @return relocated data matrix
 #'
 #' @author Fatih Saglam, saglamf89@gmail.com
 #'
