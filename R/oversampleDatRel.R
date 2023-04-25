@@ -83,8 +83,10 @@
 oversampleDatRel <- function(x, y, method = "SMOTE", proportion = 1, p_of = 0, class_pos = NULL, ...) {
   f_oversample <- get(method)
 
+  m <- f_oversample(x = x, y = y, ...)
+
   if (method == "ROSE") {
-    class_names <- unique(y)
+    class_names <- levels(y)
     k_class <- length(class_names)
     p <- ncol(x)
 
@@ -95,7 +97,7 @@ oversampleDatRel <- function(x, y, method = "SMOTE", proportion = 1, p_of = 0, c
     x_pos_dominant <- list()
 
     for (i in 1:k_class) {
-      x_main <- m$x_new[m$y_new == class_names[1],, drop = FALSE]
+      x_main <- m$x_new[m$y_new == class_names[i],, drop = FALSE]
       m_DatRel <- DatRel(x = x, y = y, x_syn = x_main, proportion = proportion, p_of = p_of, class_pos = as.character(class_names[i]))
 
       x_new <- rbind(x_new, m_DatRel$x_syn)
@@ -104,6 +106,8 @@ oversampleDatRel <- function(x, y, method = "SMOTE", proportion = 1, p_of = 0, c
       radii_pos_dominant[[i]] <- m_DatRel$radii_pos_dominant
       x_pos_dominant[[i]] <- m_DatRel$x_pos_dominant
     }
+
+    y_new <- factor(y_new, levels = class_names, labels = class_names)
 
     return(list(
       x_new = x_new,
@@ -115,7 +119,6 @@ oversampleDatRel <- function(x, y, method = "SMOTE", proportion = 1, p_of = 0, c
     ))
 
   } else {
-    m <- f_oversample(x = x, y = y)
 
     m_DatRel <- DatRel(x = x, y = y, x_syn = m$x_syn, proportion = proportion, p_of = p_of, class_pos = class_pos)
     return(m_DatRel)
