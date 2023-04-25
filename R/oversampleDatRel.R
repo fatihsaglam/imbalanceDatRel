@@ -75,6 +75,8 @@
 #' plot(x, col = y, main = "SMOTE + DatRel")
 #' points(m_DatRel$x_syn, col = "green")
 #'
+#' @import SMOTEWB
+#'
 #' @rdname oversampleDatRel
 #' @export
 
@@ -90,6 +92,7 @@ oversampleDatRel <- function(x, y, method = "SMOTE", proportion = 1, p_of = 0, c
     y_new <- c()
     i_dominant <- list()
     radii_pos_dominant <- list()
+    x_pos_dominant <- list()
 
     for (i in 1:k_class) {
       x_main <- m$x_new[m$y_new == class_names[1],, drop = FALSE]
@@ -99,6 +102,7 @@ oversampleDatRel <- function(x, y, method = "SMOTE", proportion = 1, p_of = 0, c
       y_new <- c(y_new, rep(as.character(class_names[i]), nrow(x_main)))
       i_dominant[[i]] <- m_DatRel$i_dominant
       radii_pos_dominant[[i]] <- m_DatRel$radii_pos_dominant
+      x_pos_dominant[[i]] <- m_DatRel$x_pos_dominant
     }
 
     return(list(

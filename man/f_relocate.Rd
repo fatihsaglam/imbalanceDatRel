@@ -22,10 +22,6 @@ relocated data matrix
 \description{
 Relocation function
 }
-\examples{
-rnorm(1)
-
-}
 \author{
 Fatih Saglam, saglamf89@gmail.com
 }

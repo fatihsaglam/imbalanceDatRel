@@ -2,25 +2,28 @@
 #'
 #' @description Determining cover balls
 #'
-#' @param x_main asd
-#' @param x_other asd
-#' @param proportion asd
-#' @param p_of asd
+#' @param x_main Target class samples.
+#' @param x_other Non-target class samples.
+#' @param proportion proportion of covered samples. A real number between \eqn{(0,1]}.
+#' 1 by default. Smaller numbers results in less dominant samples.
+#' @param p_of roportion to increase cover radius. A real number between
+#'  \eqn{(0,\infty)}. Default is 0. Higher values tolerate other classes more.
 #'
 #' @details
-#' asd
+#' To be used in \code{DatRel}.
 #'
-#' @return asd
-#'  \item{results}{asd}
+#' @return a list object with following:
+#'  \item{i_dominant}{dominant sample indexes}
+#'  \item{dist_main2other}{distance matrix of target class samples to non-target
+#' class samples}
+#'  \item{dist_main2main}{distance matrix of target class samples to target
+#' class samples}
 #'
 #' @author Fatih Saglam, saglamf89@gmail.com
 #'
 #' @importFrom RANN nn2
 #' @importFrom Rfast Dist
 #' @import rcccd
-#'
-#' @examples
-#' rnorm(1)
 #'
 #' @rdname f_dominate
 #' @export

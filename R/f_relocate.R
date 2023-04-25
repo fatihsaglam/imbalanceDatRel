@@ -14,9 +14,6 @@
 #'
 #' @importFrom Rfast dista
 #'
-#' @examples
-#' rnorm(1)
-#'
 #' @rdname f_relocate
 #' @export
 

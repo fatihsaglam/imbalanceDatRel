@@ -11,8 +11,7 @@ Description: Relocates oversampled data from a specific oversampling method to
     It prevents any data to be generated in class overlapping area. 
 Depends: 
     R (>= 4.2),
-    rcccd,
-    SMOTEWB
+    rcccd
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: false
@@ -20,5 +19,4 @@ RoxygenNote: 7.2.1
 Imports:
     RANN,
     Rfast,
-    rcccd,
     SMOTEWB

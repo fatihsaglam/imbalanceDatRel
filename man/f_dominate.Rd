@@ -7,27 +7,29 @@
 f_dominate(x_main, x_other, proportion = 1, p_of = 0)
 }
 \arguments{
-\item{x_main}{asd}
+\item{x_main}{Target class samples.}
 
-\item{x_other}{asd}
+\item{x_other}{Non-target class samples.}
 
-\item{proportion}{asd}
+\item{proportion}{proportion of covered samples. A real number between \eqn{(0,1]}.
+1 by default. Smaller numbers results in less dominant samples.}
 
-\item{p_of}{asd}
+\item{p_of}{roportion to increase cover radius. A real number between
+\eqn{(0,\infty)}. Default is 0. Higher values tolerate other classes more.}
 }
 \value{
-asd
- \item{results}{asd}
+a list object with following:
+ \item{i_dominant}{dominant sample indexes}
+ \item{dist_main2other}{distance matrix of target class samples to non-target
+class samples}
+ \item{dist_main2main}{distance matrix of target class samples to target
+class samples}
 }
 \description{
 Determining cover balls
 }
 \details{
-asd
-}
-\examples{
-rnorm(1)
-
+To be used in \code{DatRel}.
 }
 \author{
 Fatih Saglam, saglamf89@gmail.com
