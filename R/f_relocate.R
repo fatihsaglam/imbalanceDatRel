@@ -2,13 +2,11 @@
 #'
 #' @description Relocation function
 #'
-#' @param x_pos_dominant asd
-#' @param x_syn asd
-#' @param radii_pos_dominant asd
-#' @param p_of asd
-#'
-#' @details
-#' asd
+#' @param x_pos_dominant positive class dominant sample matrix or dataframe
+#' @param x_syn synthetically generated positive class sample matrix or dataframe
+#' @param radii_pos_dominant positive class dominant sample radii
+#' @param p_of proportion to increase cover radius. A real number between
+#'  \eqn{(0,\infty)}. Default is 0. Higher values tolerate other classes more.
 #'
 #' @return asd
 #'  \item{x_syn_relocated}{relocated samples.}

@@ -1,14 +1,15 @@
 Package: imbalanceDatRel
 Type: Package
-Title: Data Relocation for Data Oversampling
-Version: 0.3.1
+Title: Relocated Data Oversampling for Imbalanced Data Classification
+Version: 0.1.2
 Authors@R: 
         c(person("Fatih", "Saglam", email = "saglamf89@gmail.com", 
         role = c("aut", "cre"), 
         comment = c(ORCID = "0000-0002-2084-2008")))
-Description: Relocates resampled data samples from oversampling methods which 
-    are used to balanced imbalanced datasets. It prevents any class overlapping 
-    samples to exist.
+Description: Relocates oversampled data from a specific oversampling method to
+    cover area determined by pure and proper class cover catch digraphs (PCCCD). 
+    It prevents any data to be generated in class overlapping area. Can be used
+    for situations where more then one class is oversampled. 
 Depends: 
     R (>= 4.2),
     rcccd,
