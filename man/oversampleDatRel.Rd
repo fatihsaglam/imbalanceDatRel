@@ -54,7 +54,9 @@ an list which includes:
 then relocates resampled data using Pure and Proper Class Cover Catch Digraph.
 }
 \details{
-asd
+Oversampling using \code{DatRel}. Available oversampling methods are from
+\code{SMOTEWB} package. "ROSE" generates samples from all classes. DatRel
+relocates all class samples.
 }
 \examples{
 
@@ -85,17 +87,6 @@ m_DatRel <- oversampleDatRel(x = x, y = y, method = "SMOTE")
 plot(x, col = y, main = "SMOTE + DatRel")
 points(m_DatRel$x_syn, col = "green")
 
-}
-\references{
-Priebe, C. E., DeVinney, J. G., & Marchette, D. J. (2001). On the distribution
-of the domination number for random class cover catch digraphs. Statistics &
-Probability Letters, 55(3), 239-246.
-
-Marchette, C. E. P. D. J., & Socolinsky, J. G. D. D. A. (2003).
- Classiﬁcation Using Class Cover Catch Digraphs. Journal of Classiﬁcation, 20, 3-23.
-
-Manukyan, A., & Ceyhan, E. (2016). Classification of imbalanced data with a
-geometric digraph family. The Journal of Machine Learning Research, 17(1), 6504-6543.
 }
 \author{
 Fatih Saglam, saglamf89@gmail.com
